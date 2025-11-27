@@ -15,7 +15,6 @@ public class WeatherService {
         Map<String, Map<String,Double>> result = new HashMap<>();
         for(String city:cities) {
             String url = String.format("https://openweathermap.org/data/2.5/weather?q="+city+"&appid=439d4b804bc8187953eb36d2a8c26a02",city);
-
             Map<String, Object> response = restTemplate.getForObject(url, Map.class);
             Map<String,Object> main = (Map<String,Object>) response.get("main");
             double minTemp = ((Number)main.get("temp_min")).doubleValue();
